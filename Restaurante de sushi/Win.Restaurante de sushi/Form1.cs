@@ -1,4 +1,5 @@
 ﻿
+using BL.Sushi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,13 @@ namespace Win.Restaurante_de_sushi
 {
     public partial class FormLogin : Form
     {
+        SeguridadBL _seguridad;
+
         public FormLogin()
         {
             InitializeComponent();
+
+            _seguridad = new SeguridadBL();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,7 +40,9 @@ namespace Win.Restaurante_de_sushi
 
             usuario = textBox1.Text;
             contraseña = textBox2.Text;
-            if (usuario == "REYDESUSHI" && contraseña == "sushiper")
+
+            var resultado = _seguridad.Autorizar(usuario, contraseña);
+            if (resultado == true)
             {
                 this.Close();
             }
@@ -62,6 +69,11 @@ namespace Win.Restaurante_de_sushi
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
 
         }

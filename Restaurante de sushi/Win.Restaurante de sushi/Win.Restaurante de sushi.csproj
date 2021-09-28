@@ -121,6 +121,12 @@
   <ItemGroup>
     <None Include="Resources\R1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL.Sushi\BL.Sushi.csproj">
+      <Project>{018af0fd-892a-467d-bafe-f61a996cd8ad}</Project>
+      <Name>BL.Sushi</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
