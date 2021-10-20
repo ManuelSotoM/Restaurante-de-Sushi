@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FoodMenuBL.cs" />
+    <Compile Include="Resultado.cs" />
+    <Compile Include="resultado1.cs" />
     <Compile Include="SeguridadBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
