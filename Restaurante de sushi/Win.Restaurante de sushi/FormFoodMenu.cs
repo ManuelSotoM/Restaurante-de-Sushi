@@ -29,7 +29,7 @@ namespace Win.Restaurante_de_sushi
         private void listaFoodMenuBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             listaFoodMenuBindingSource.EndEdit();
-            var foodmenu = (FoodMenu)listaFoodMenuBindingSource.Current;
+            var foodmenu = (foodmenu)listaFoodMenuBindingSource.Current;
 
             var resultado = _FoodMenu.GuardarFoodMenu(foodmenu);
 
@@ -37,6 +37,7 @@ namespace Win.Restaurante_de_sushi
             {
                 listaFoodMenuBindingSource.ResetBindings(false);
                 DeshabilitarHabilitarBotones(true);
+                MessageBox.Show("Producto Guardado");
             }
             else
             {
@@ -98,6 +99,11 @@ namespace Win.Restaurante_de_sushi
         {
             DeshabilitarHabilitarBotones(true);
             Eliminar(0);
+        }
+
+        private void menuTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

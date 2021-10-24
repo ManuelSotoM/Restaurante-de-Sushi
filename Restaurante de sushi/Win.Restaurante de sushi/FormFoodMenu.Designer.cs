@@ -292,6 +292,8 @@
             this.menuTextBox.Name = "menuTextBox";
             this.menuTextBox.Size = new System.Drawing.Size(513, 22);
             this.menuTextBox.TabIndex = 8;
+            this.menuTextBox.Text = "b";
+            this.menuTextBox.TextChanged += new System.EventHandler(this.menuTextBox_TextChanged);
             // 
             // precioTextBox
             // 
