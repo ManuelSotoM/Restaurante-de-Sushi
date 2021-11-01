@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,15 @@ namespace Win.Restaurante_de_sushi
         {
             listaFoodMenuBindingSource.EndEdit();
             var foodmenu = (foodmenu)listaFoodMenuBindingSource.Current;
+
+            if(fotoPictureBox.Image != null)
+            {
+                foodmenu.Foto = Program.imageToByArray(fotoPictureBox.Image);
+            }
+            else
+            {
+                foodmenu.Foto = null;
+            }
 
             var resultado = _FoodMenu.GuardarFoodMenu(foodmenu);
 
@@ -104,6 +114,50 @@ namespace Win.Restaurante_de_sushi
         private void menuTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void fotoLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fotoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormFoodMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var foodmenu = (foodmenu)listaFoodMenuBindingSource.Current;
+            if (foodmenu != null)
+            {
+                openFileDialog1.ShowDialog();
+                var archivo = openFileDialog1.FileName;
+
+                if (archivo != " ")
+                {
+                    var fileInfo = new FileInfo(archivo);
+                    var filestream = fileInfo.OpenRead();
+
+                    fotoPictureBox.Image = Image.FromStream(filestream);
+                }
+                }
+                else
+                {
+                    MessageBox.Show("Cree una comida para el menu antes de agregarle una imagen");
+                }
+            }
+        
+        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fotoPictureBox.Image = null;
         }
     }
 }

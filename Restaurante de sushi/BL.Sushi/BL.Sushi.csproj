@@ -58,6 +58,8 @@
     <Compile Include="resultado1.cs" />
     <Compile Include="SeguridadBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tipo.cs" />
+    <Compile Include="TiposBl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

@@ -104,6 +104,7 @@ namespace BL.Sushi
             public string Descripcion { get; set; }
             public double Precio { get; set; }
             public int Calificacion { get; set; }
+            public byte[] Foto { get; set; }
             public bool Activo { get; set; }
         }
         public class Resultado

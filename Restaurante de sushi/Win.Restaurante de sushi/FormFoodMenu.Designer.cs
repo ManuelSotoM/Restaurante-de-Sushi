@@ -35,6 +35,7 @@
             System.Windows.Forms.Label menuLabel;
             System.Windows.Forms.Label precioLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFoodMenu));
+            System.Windows.Forms.Label fotoLabel;
             this.listaFoodMenuBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.listaFoodMenuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -56,14 +57,22 @@
             this.descripcionTextBox = new System.Windows.Forms.TextBox();
             this.menuTextBox = new System.Windows.Forms.TextBox();
             this.precioTextBox = new System.Windows.Forms.TextBox();
+            this.listaFoodMenuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             activoLabel = new System.Windows.Forms.Label();
             calificacionLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             menuLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
+            fotoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingNavigator)).BeginInit();
             this.listaFoodMenuBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
@@ -140,7 +149,7 @@
             this.listaFoodMenuBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaFoodMenuBindingNavigator.Name = "listaFoodMenuBindingNavigator";
             this.listaFoodMenuBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaFoodMenuBindingNavigator.Size = new System.Drawing.Size(711, 27);
+            this.listaFoodMenuBindingNavigator.Size = new System.Drawing.Size(1056, 27);
             this.listaFoodMenuBindingNavigator.TabIndex = 0;
             this.listaFoodMenuBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -292,7 +301,6 @@
             this.menuTextBox.Name = "menuTextBox";
             this.menuTextBox.Size = new System.Drawing.Size(513, 22);
             this.menuTextBox.TabIndex = 8;
-            this.menuTextBox.Text = "b";
             this.menuTextBox.TextChanged += new System.EventHandler(this.menuTextBox_TextChanged);
             // 
             // precioTextBox
@@ -303,11 +311,65 @@
             this.precioTextBox.Size = new System.Drawing.Size(513, 22);
             this.precioTextBox.TabIndex = 10;
             // 
+            // listaFoodMenuBindingSource1
+            // 
+            this.listaFoodMenuBindingSource1.DataSource = typeof(BL.Sushi.FoodMenuBL.foodmenu);
+            // 
+            // fotoLabel
+            // 
+            fotoLabel.AutoSize = true;
+            fotoLabel.Location = new System.Drawing.Point(711, 69);
+            fotoLabel.Name = "fotoLabel";
+            fotoLabel.Size = new System.Drawing.Size(0, 17);
+            fotoLabel.TabIndex = 11;
+            fotoLabel.Click += new System.EventHandler(this.fotoLabel_Click);
+            // 
+            // fotoPictureBox
+            // 
+            this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaFoodMenuBindingSource1, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.fotoPictureBox.Location = new System.Drawing.Point(659, 69);
+            this.fotoPictureBox.Name = "fotoPictureBox";
+            this.fotoPictureBox.Size = new System.Drawing.Size(385, 233);
+            this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fotoPictureBox.TabIndex = 12;
+            this.fotoPictureBox.TabStop = false;
+            this.fotoPictureBox.Click += new System.EventHandler(this.fotoPictureBox_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(728, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 33);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Agregar foto";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(895, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 33);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Remover foto";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "jpg, png | *.jpg; *.png";
+            // 
             // FormFoodMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 314);
+            this.ClientSize = new System.Drawing.Size(1056, 314);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(fotoLabel);
+            this.Controls.Add(this.fotoPictureBox);
             this.Controls.Add(activoLabel);
             this.Controls.Add(this.activoCheckBox);
             this.Controls.Add(calificacionLabel);
@@ -321,10 +383,13 @@
             this.Controls.Add(this.listaFoodMenuBindingNavigator);
             this.Name = "FormFoodMenu";
             this.Text = "FoodMenu";
+            this.Load += new System.EventHandler(this.FormFoodMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingNavigator)).EndInit();
             this.listaFoodMenuBindingNavigator.ResumeLayout(false);
             this.listaFoodMenuBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +418,10 @@
         private System.Windows.Forms.TextBox precioTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.BindingSource listaFoodMenuBindingSource1;
+        private System.Windows.Forms.PictureBox fotoPictureBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
