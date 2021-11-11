@@ -6,22 +6,36 @@ using System.Threading.Tasks;
 
 namespace BL.Sushi
 {
+
     public class SeguridadBL
     {
+        Contexto _contexto;
+
+        public SeguridadBL()
+        {
+            _contexto = new Contexto();
+        }
+
         public bool Autorizar(string usuario, string contraseña)
         {
-            if (usuario == "REYDESUSHI" && contraseña == "sushiper")
+            var usuarios = _contexto.Usuarios.ToList();
+
+
+            foreach (var usuarioDB in usuarios)
             {
-                return true;
-            }
-            else
-            {
-                if (usuario == "CAPITANDELMAR" && contraseña == "sushiper2")
+                if (usuario == usuarioDB.Nombre && contraseña == usuarioDB.Contraseña);
                 {
                     return true;
                 }
             }
             return false;
         }
+    }
+    public class Usuario
+    {
+        public string contraseña;
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Contraseña { get; set; }
     }
 }

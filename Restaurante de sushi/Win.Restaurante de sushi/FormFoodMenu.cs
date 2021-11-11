@@ -16,13 +16,21 @@ namespace Win.Restaurante_de_sushi
     public partial class FormFoodMenu : Form
     {
         FoodMenuBL _FoodMenu;
-
+        CategoriasBL _categorias;
+        TiposBL _tiposBL;
 
         public FormFoodMenu()
         {
             InitializeComponent();
             _FoodMenu = new FoodMenuBL();
             listaFoodMenuBindingSource.DataSource = _FoodMenu.ObtenerFoodMenu();
+
+            _categorias = new CategoriasBL();
+             listaCategoriasBindingSource.DataSource = _categorias.ObtenerCategorias();
+
+            _tiposBL = new TiposBL();
+             listaTiposBindingSource.DataSource = _tiposBL.ObtenerTipos();
+
         }
 
 
@@ -30,7 +38,7 @@ namespace Win.Restaurante_de_sushi
         private void listaFoodMenuBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             listaFoodMenuBindingSource.EndEdit();
-            var foodmenu = (foodmenu)listaFoodMenuBindingSource.Current;
+            var foodmenu = (FoodMenu)listaFoodMenuBindingSource.Current;
 
             if(fotoPictureBox.Image != null)
             {
@@ -133,9 +141,10 @@ namespace Win.Restaurante_de_sushi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var foodmenu = (foodmenu)listaFoodMenuBindingSource.Current;
+            var foodmenu = (FoodMenu)listaFoodMenuBindingSource.Current;
             if (foodmenu != null)
             {
+
                 openFileDialog1.ShowDialog();
                 var archivo = openFileDialog1.FileName;
 
@@ -146,18 +155,41 @@ namespace Win.Restaurante_de_sushi
 
                     fotoPictureBox.Image = Image.FromStream(filestream);
                 }
-                }
-                else
-                {
-                    MessageBox.Show("Cree una comida para el menu antes de agregarle una imagen");
-                }
             }
-        
-        
+            else
+            {
+                MessageBox.Show("Cree una comida para el menu antes de agregarle una imagen");
+            }
+        }
+
+
+
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             fotoPictureBox.Image = null;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void categoriaIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tiposBLBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

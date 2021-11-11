@@ -34,8 +34,10 @@
             System.Windows.Forms.Label descripcionLabel;
             System.Windows.Forms.Label menuLabel;
             System.Windows.Forms.Label precioLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFoodMenu));
             System.Windows.Forms.Label fotoLabel;
+            System.Windows.Forms.Label categoriaIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFoodMenu));
+            System.Windows.Forms.Label tipoIdLabel;
             this.listaFoodMenuBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.listaFoodMenuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -62,23 +64,39 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.listaFoodMenuBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriaIdComboBox = new System.Windows.Forms.ComboBox();
+            this.categoriasBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.listaCategoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiposBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tipoIdComboBox = new System.Windows.Forms.ComboBox();
+            this.tiposBLBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.listaTiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
             activoLabel = new System.Windows.Forms.Label();
             calificacionLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             menuLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
             fotoLabel = new System.Windows.Forms.Label();
+            categoriaIdLabel = new System.Windows.Forms.Label();
+            tipoIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingNavigator)).BeginInit();
             this.listaFoodMenuBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaCategoriasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaTiposBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
             // 
             activoLabel.AutoSize = true;
-            activoLabel.Location = new System.Drawing.Point(28, 190);
+            activoLabel.Location = new System.Drawing.Point(28, 257);
             activoLabel.Name = "activoLabel";
             activoLabel.Size = new System.Drawing.Size(50, 17);
             activoLabel.TabIndex = 1;
@@ -87,7 +105,7 @@
             // calificacionLabel
             // 
             calificacionLabel.AutoSize = true;
-            calificacionLabel.Location = new System.Drawing.Point(26, 163);
+            calificacionLabel.Location = new System.Drawing.Point(26, 227);
             calificacionLabel.Name = "calificacionLabel";
             calificacionLabel.Size = new System.Drawing.Size(83, 17);
             calificacionLabel.TabIndex = 3;
@@ -120,6 +138,24 @@
             precioLabel.TabIndex = 9;
             precioLabel.Text = "Precio:";
             // 
+            // fotoLabel
+            // 
+            fotoLabel.AutoSize = true;
+            fotoLabel.Location = new System.Drawing.Point(711, 69);
+            fotoLabel.Name = "fotoLabel";
+            fotoLabel.Size = new System.Drawing.Size(0, 17);
+            fotoLabel.TabIndex = 11;
+            fotoLabel.Click += new System.EventHandler(this.fotoLabel_Click);
+            // 
+            // categoriaIdLabel
+            // 
+            categoriaIdLabel.AutoSize = true;
+            categoriaIdLabel.Location = new System.Drawing.Point(28, 187);
+            categoriaIdLabel.Name = "categoriaIdLabel";
+            categoriaIdLabel.Size = new System.Drawing.Size(77, 17);
+            categoriaIdLabel.TabIndex = 17;
+            categoriaIdLabel.Text = "Categoria :";
+            // 
             // listaFoodMenuBindingNavigator
             // 
             this.listaFoodMenuBindingNavigator.AddNewItem = null;
@@ -149,9 +185,13 @@
             this.listaFoodMenuBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaFoodMenuBindingNavigator.Name = "listaFoodMenuBindingNavigator";
             this.listaFoodMenuBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaFoodMenuBindingNavigator.Size = new System.Drawing.Size(1056, 27);
+            this.listaFoodMenuBindingNavigator.Size = new System.Drawing.Size(1064, 27);
             this.listaFoodMenuBindingNavigator.TabIndex = 0;
             this.listaFoodMenuBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // listaFoodMenuBindingSource
+            // 
+            this.listaFoodMenuBindingSource.DataSource = typeof(BL.Sushi.FoodMenuBL.FoodMenu);
             // 
             // bindingNavigatorCountItem
             // 
@@ -272,7 +312,7 @@
             // activoCheckBox
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaFoodMenuBindingSource, "Activo", true));
-            this.activoCheckBox.Location = new System.Drawing.Point(118, 188);
+            this.activoCheckBox.Location = new System.Drawing.Point(118, 255);
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(441, 19);
             this.activoCheckBox.TabIndex = 2;
@@ -281,7 +321,7 @@
             // calificacionTextBox
             // 
             this.calificacionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFoodMenuBindingSource, "Calificacion", true));
-            this.calificacionTextBox.Location = new System.Drawing.Point(118, 160);
+            this.calificacionTextBox.Location = new System.Drawing.Point(118, 227);
             this.calificacionTextBox.Name = "calificacionTextBox";
             this.calificacionTextBox.Size = new System.Drawing.Size(513, 22);
             this.calificacionTextBox.TabIndex = 4;
@@ -306,28 +346,15 @@
             // precioTextBox
             // 
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaFoodMenuBindingSource, "Precio", true));
-            this.precioTextBox.Location = new System.Drawing.Point(118, 130);
+            this.precioTextBox.Location = new System.Drawing.Point(118, 133);
             this.precioTextBox.Name = "precioTextBox";
             this.precioTextBox.Size = new System.Drawing.Size(513, 22);
             this.precioTextBox.TabIndex = 10;
             // 
-            // listaFoodMenuBindingSource1
-            // 
-            this.listaFoodMenuBindingSource1.DataSource = typeof(BL.Sushi.FoodMenuBL.foodmenu);
-            // 
-            // fotoLabel
-            // 
-            fotoLabel.AutoSize = true;
-            fotoLabel.Location = new System.Drawing.Point(711, 69);
-            fotoLabel.Name = "fotoLabel";
-            fotoLabel.Size = new System.Drawing.Size(0, 17);
-            fotoLabel.TabIndex = 11;
-            fotoLabel.Click += new System.EventHandler(this.fotoLabel_Click);
-            // 
             // fotoPictureBox
             // 
             this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaFoodMenuBindingSource1, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
+            this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaFoodMenuBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.fotoPictureBox.Location = new System.Drawing.Point(659, 69);
             this.fotoPictureBox.Name = "fotoPictureBox";
             this.fotoPictureBox.Size = new System.Drawing.Size(385, 233);
@@ -361,11 +388,71 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "jpg, png | *.jpg; *.png";
             // 
+            // categoriaIdComboBox
+            // 
+            this.categoriaIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.listaFoodMenuBindingSource, "CategoriaId", true));
+            this.categoriaIdComboBox.DataSource = this.listaCategoriasBindingSource;
+            this.categoriaIdComboBox.DisplayMember = "Descripcion";
+            this.categoriaIdComboBox.FormattingEnabled = true;
+            this.categoriaIdComboBox.Location = new System.Drawing.Point(118, 191);
+            this.categoriaIdComboBox.Name = "categoriaIdComboBox";
+            this.categoriaIdComboBox.Size = new System.Drawing.Size(513, 24);
+            this.categoriaIdComboBox.TabIndex = 18;
+            this.categoriaIdComboBox.ValueMember = "Id";
+            // 
+            // categoriasBLBindingSource
+            // 
+            this.categoriasBLBindingSource.DataSource = typeof(BL.Sushi.CategoriasBL);
+            // 
+            // listaCategoriasBindingSource
+            // 
+            this.listaCategoriasBindingSource.DataMember = "ListaCategorias";
+            this.listaCategoriasBindingSource.DataSource = this.categoriasBLBindingSource;
+            // 
+            // tiposBLBindingSource
+            // 
+            this.tiposBLBindingSource.DataSource = typeof(BL.Sushi.TiposBL);
+            // 
+            // tipoIdLabel
+            // 
+            tipoIdLabel.AutoSize = true;
+            tipoIdLabel.Location = new System.Drawing.Point(28, 161);
+            tipoIdLabel.Name = "tipoIdLabel";
+            tipoIdLabel.Size = new System.Drawing.Size(44, 17);
+            tipoIdLabel.TabIndex = 18;
+            tipoIdLabel.Text = "Tipo :";
+            // 
+            // tipoIdComboBox
+            // 
+            this.tipoIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.listaFoodMenuBindingSource, "TipoId", true));
+            this.tipoIdComboBox.DataSource = this.listaTiposBindingSource;
+            this.tipoIdComboBox.DisplayMember = "Descripcion";
+            this.tipoIdComboBox.FormattingEnabled = true;
+            this.tipoIdComboBox.Location = new System.Drawing.Point(118, 161);
+            this.tipoIdComboBox.Name = "tipoIdComboBox";
+            this.tipoIdComboBox.Size = new System.Drawing.Size(513, 24);
+            this.tipoIdComboBox.TabIndex = 19;
+            this.tipoIdComboBox.ValueMember = "Id";
+            // 
+            // tiposBLBindingSource1
+            // 
+            this.tiposBLBindingSource1.DataSource = typeof(BL.Sushi.TiposBL);
+            this.tiposBLBindingSource1.CurrentChanged += new System.EventHandler(this.tiposBLBindingSource1_CurrentChanged);
+            // 
+            // listaTiposBindingSource
+            // 
+            this.listaTiposBindingSource.DataMember = "ListaTipos";
+            this.listaTiposBindingSource.DataSource = this.tiposBLBindingSource;
+            // 
             // FormFoodMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 314);
+            this.ClientSize = new System.Drawing.Size(1064, 595);
+            this.Controls.Add(tipoIdLabel);
+            this.Controls.Add(this.tipoIdComboBox);
+            this.Controls.Add(categoriaIdLabel);
+            this.Controls.Add(this.categoriaIdComboBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(fotoLabel);
@@ -390,6 +477,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaCategoriasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaTiposBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,5 +516,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.BindingSource listaFoodMenuBindingSource2;
+        private System.Windows.Forms.ComboBox categoriaIdComboBox;
+        private System.Windows.Forms.BindingSource categoriasBLBindingSource;
+        private System.Windows.Forms.BindingSource listaCategoriasBindingSource;
+        private System.Windows.Forms.BindingSource tiposBLBindingSource;
+        private System.Windows.Forms.ComboBox tipoIdComboBox;
+        private System.Windows.Forms.BindingSource tiposBLBindingSource1;
+        private System.Windows.Forms.BindingSource listaTiposBindingSource;
     }
 }

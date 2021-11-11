@@ -41,6 +41,10 @@ namespace Win.Restaurante_de_sushi
             usuario = textBox1.Text;
             contraseña = textBox2.Text;
 
+            button1.Enabled = false;
+            button1.Text = "verificando";
+            Application.DoEvents();
+
             var resultado = _seguridad.Autorizar(usuario, contraseña);
             if (resultado == true)
             {

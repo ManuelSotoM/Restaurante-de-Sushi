@@ -11,23 +11,23 @@ namespace BL.Sushi
     public class FoodMenuBL
     {
         Contexto _contexto;
-        public BindingList<foodmenu> ListaFoodMenu { get; set; }
-      
+        public BindingList<FoodMenu> ListaFoodMenu { get; set; }
+
 
         public FoodMenuBL()
         {
             _contexto = new Contexto();
-            ListaFoodMenu = new BindingList<foodmenu>();
+            ListaFoodMenu = new BindingList<FoodMenu>();
         }
-        public BindingList<foodmenu> ObtenerFoodMenu()
+        public BindingList<FoodMenu> ObtenerFoodMenu()
         {
-            _contexto.FoodMenu.Load();
-            ListaFoodMenu = _contexto.FoodMenu.Local.ToBindingList();
+            _contexto.foodmenu.Load();
+            ListaFoodMenu = _contexto.foodmenu.Local.ToBindingList();
             return ListaFoodMenu;
         }
 
 
-        public Resultado GuardarFoodMenu(foodmenu foodmenu)
+        public Resultado GuardarFoodMenu(FoodMenu foodmenu)
         {
             var resultado = Validar(foodmenu);
             if (resultado.Exitoso == false)
@@ -39,13 +39,22 @@ namespace BL.Sushi
                 foodmenu.Precio = ListaFoodMenu.Max(item => item.Precio) + 1;
             }
 
+            foodmenu.CategoriaId=1  ;
+            foodmenu.TipoId=1;
+
             _contexto.SaveChanges();
             resultado.Exitoso = true;
             return resultado;
         }
+
+        public object ObtenerCategorias()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AgregarFoodMenu()
         {
-            var nuevoFoodMenu = new foodmenu();
+            var nuevoFoodMenu = new FoodMenu();
             ListaFoodMenu.Add(nuevoFoodMenu);
         }
         public bool EliminarFoodMenu(double precio)
@@ -61,7 +70,7 @@ namespace BL.Sushi
             }
             return false;
         }
-        private Resultado Validar(foodmenu foodmenu)
+        private Resultado Validar(FoodMenu foodmenu)
         {
             var resultado = new Resultado();
             resultado.Exitoso = true;
@@ -96,7 +105,7 @@ namespace BL.Sushi
 
         }
 
-        public class foodmenu
+        public class FoodMenu
         {
 
             public int Id { get; set; }
@@ -104,8 +113,18 @@ namespace BL.Sushi
             public string Descripcion { get; set; }
             public double Precio { get; set; }
             public int Calificacion { get; set; }
+            public int CategoriaId { get; set; }
+            public Categoria Categoria { get; set; }
+            public int TipoId { get; set; }
+            public Tipo Tipo { get; set; }
             public byte[] Foto { get; set; }
             public bool Activo { get; set; }
+
+            public FoodMenu()
+            {
+                Activo = true;
+            }
+            
         }
         public class Resultado
         {

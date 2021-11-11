@@ -29,9 +29,9 @@ namespace Win.Restaurante_de_sushi
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var formMenu = new FormFoodMenu();
-            formMenu.MdiParent = this;
-            formMenu.Show();
+            var formfoodmenu = new FormFoodMenu();
+            formfoodmenu.MdiParent = this;
+            formfoodmenu.Show();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
