@@ -25,6 +25,15 @@ namespace BL.Sushi
             ListaFoodMenu = _contexto.foodmenu.Local.ToBindingList();
             return ListaFoodMenu;
         }
+        public void CancelarCambios()
+        {
+
+            foreach (var item in _contexto.ChangeTracker.Entries())
+            {
+                item.State = EntityState.Unchanged;
+                item.Reload();
+            }
+        }
 
 
         public Resultado GuardarFoodMenu(FoodMenu foodmenu)

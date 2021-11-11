@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\Sushi\Cliente.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BL.Sushi.CategoriasBL.datasource" />
+    <None Include="Properties\DataSources\BL.Sushi.ClientesBL.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.FoodMenu.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.FoodMenuBL.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.SeguridadBL.datasource" />

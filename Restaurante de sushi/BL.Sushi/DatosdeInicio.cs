@@ -13,7 +13,7 @@ namespace BL.Sushi
         protected override void Seed(Contexto contexto)
         {
 
-            var usuarioAdmin = new Usuario();
+            var usuarioAdmin = new Usuarios();
             usuarioAdmin.Nombre = "REYDESUSHI";
             usuarioAdmin.contraseña = "sushiper";
 

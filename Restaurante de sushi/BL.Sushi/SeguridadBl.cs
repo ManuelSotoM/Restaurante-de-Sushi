@@ -31,7 +31,7 @@ namespace BL.Sushi
             return false;
         }
     }
-    public class Usuario
+    public class Usuarios
     {
         public string contraseña;
         public int Id { get; set; }
