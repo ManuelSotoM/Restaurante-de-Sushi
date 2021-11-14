@@ -63,7 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BL\Sushi\Cliente.cs" />
+    <Compile Include="BL\Sushi\Cliente1.cs" />
+    <Compile Include="BL\Sushi\FoodMenu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +76,12 @@
     </Compile>
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFactura.Designer.cs">
+      <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFoodMenu.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,9 @@
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFactura.resx">
+      <DependentUpon>FormFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFoodMenu.resx">
       <DependentUpon>FormFoodMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +127,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BL.Sushi.CategoriasBL.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.ClientesBL.datasource" />
+    <None Include="Properties\DataSources\BL.Sushi.FacturaBL.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.FoodMenu.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.FoodMenuBL.datasource" />
     <None Include="Properties\DataSources\BL.Sushi.SeguridadBL.datasource" />

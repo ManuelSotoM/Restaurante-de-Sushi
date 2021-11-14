@@ -13,33 +13,14 @@ namespace Win.Restaurante_de_sushi
 {
     public partial class FormClientes : Form
     {
-        ClientesBL _clientes;
+        ClientesBL _clientesBL;
 
         public FormClientes()
         {
             InitializeComponent();
-            _clientes = new ClientesBL();
-            listaClientesBindingSource.DataSource = _clientes.ObtenerClientes();
-        }
 
-        private void FormClientes_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormClientes_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void clientesBLBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void clientesBLBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-
+            _clientesBL = new ClientesBL();
+            listaClientesBindingSource.DataSource = _clientesBL.ObtenerClientes();
         }
 
         private void listaClientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -47,20 +28,19 @@ namespace Win.Restaurante_de_sushi
             listaClientesBindingSource.EndEdit();
             var cliente = (Cliente)listaClientesBindingSource.Current;
 
-            var resultado = _clientes.GuardarCliente(cliente);
+            var resultado = _clientesBL.GuardarCliente(cliente);
 
             if (resultado.Exitoso == true)
             {
                 listaClientesBindingSource.ResetBindings(false);
                 DeshabilitarHabilitarBotones(true);
-                MessageBox.Show("Producto Guardado");
+                MessageBox.Show("Cliente guardado");
             }
             else
             {
                 MessageBox.Show(resultado.Mensaje);
             }
         }
-
 
         private void DeshabilitarHabilitarBotones(bool valor)
         {
@@ -72,12 +52,46 @@ namespace Win.Restaurante_de_sushi
 
             bindingNavigatorAddNewItem.Enabled = valor;
             bindingNavigatorDeleteItem.Enabled = valor;
-     
+            toolStripButtonCancelar.Visible = !valor;
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            
+            if (idTextBox.Text != "")
+            {
+                var resultado = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    var id = Convert.ToInt32(idTextBox.Text);
+                    Eliminar(id);
+                }
+            }
+        }
+
+        private void Eliminar(int id)
+        {
+            var resultado = _clientesBL.EliminarCliente(id);
+
+            if (resultado == true)
+            {
+                listaClientesBindingSource.ResetBindings(false);
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al eliminar el Cliente");
+            }
+        }
+
+        private void toolStripButtonCancelar_Click(object sender, EventArgs e)
+        {
+            _clientesBL.CancelarCambios();
+            DeshabilitarHabilitarBotones(true);
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            _clientesBL.AgregarCliente();
+            listaClientesBindingSource.MoveLast();
 
             DeshabilitarHabilitarBotones(false);
         }

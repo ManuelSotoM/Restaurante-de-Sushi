@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Sushi;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -11,7 +12,7 @@ namespace BL.Sushi
 {
     public class Contexto : DbContext
     {
-
+     
 
         public Contexto() : base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename=" +
             Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\SushiDB.mdf")
@@ -30,5 +31,7 @@ namespace BL.Sushi
         public DbSet<Tipo> Tipos { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
+        public object FoodMenu { get; internal set; }
     }
 }

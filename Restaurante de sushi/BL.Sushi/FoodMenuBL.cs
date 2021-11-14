@@ -56,6 +56,11 @@ namespace BL.Sushi
             return resultado;
         }
 
+        public object ObtenerProductos()
+        {
+            throw new NotImplementedException();
+        }
+
         public object ObtenerCategorias()
         {
             throw new NotImplementedException();
