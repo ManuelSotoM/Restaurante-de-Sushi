@@ -58,11 +58,20 @@ namespace BL.Sushi
             {
                 double subtotal = 0;
 
-              
+                foreach (var detalle in factura.FacturaDetalle)
+                {
+                    var foodmenu = _contexto.foodmenu.Find(detalle.FoodMenuId);
+                    if (foodmenu != null)
+                    {
+                        detalle.Precio = foodmenu.Precio;
+                        detalle.Total = detalle.Cantidad * foodmenu.Precio;
 
-                factura.Subtotal = subtotal;
-                factura.Impuesto = subtotal * 0.15;
-                factura.Total = subtotal + factura.Impuesto;
+                        subtotal += detalle.Total;
+                    }
+                    factura.Subtotal = subtotal;
+                    factura.Impuesto = subtotal * 0.15;
+                    factura.Total = subtotal + factura.Impuesto;
+                }
             }
         }
 
@@ -79,7 +88,7 @@ namespace BL.Sushi
         public Resultado GuardarFactura(Factura factura)
         {
             var resultado = Validar(factura);
-            if (resultado.Exitoso == false)
+            if (resultado.Exitoso == true)
             {
                 return resultado;
             }
@@ -93,11 +102,9 @@ namespace BL.Sushi
         }
 
 
-
-
-        private void CalcularExistencia(Factura factura)
+       private void CalcularExistencia(Factura factura)
         {
-            throw new NotImplementedException();
+           //throw new NotImplementedException();
         }
 
         private Resultado Validar(Factura factura)

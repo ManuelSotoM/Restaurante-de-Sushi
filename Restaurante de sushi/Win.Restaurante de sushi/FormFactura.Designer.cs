@@ -67,6 +67,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.facturaDetalleDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.listaFoodMenuBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
@@ -438,22 +440,30 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
             this.facturaDetalleDataGridView.DataSource = this.facturaDetalleBindingSource;
-            this.facturaDetalleDataGridView.Location = new System.Drawing.Point(12, 204);
+            this.facturaDetalleDataGridView.Location = new System.Drawing.Point(24, 204);
             this.facturaDetalleDataGridView.Name = "facturaDetalleDataGridView";
             this.facturaDetalleDataGridView.RowTemplate.Height = 24;
-            this.facturaDetalleDataGridView.Size = new System.Drawing.Size(665, 220);
+            this.facturaDetalleDataGridView.Size = new System.Drawing.Size(679, 220);
             this.facturaDetalleDataGridView.TabIndex = 18;
+            this.facturaDetalleDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.facturaDetalleDataGridView_CellEndEdit_1);
             this.facturaDetalleDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.facturaDetalleDataGridView_DataError_1);
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "FoodMenuId";
-            this.dataGridViewTextBoxColumn4.DataSource = this.listaFoodMenuBindingSource;
+            this.dataGridViewTextBoxColumn4.DataSource = this.listaFoodMenuBindingSource1;
+            this.dataGridViewTextBoxColumn4.DisplayMember = "Menu";
             this.dataGridViewTextBoxColumn4.HeaderText = "FoodMenu";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn4.ValueMember = "Id";
+            // 
+            // listaFoodMenuBindingSource1
+            // 
+            this.listaFoodMenuBindingSource1.DataMember = "ListaFoodMenu";
+            this.listaFoodMenuBindingSource1.DataSource = this.listaFoodMenuBindingSource;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -509,6 +519,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDetalleDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -546,6 +557,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView facturaDetalleDataGridView;
+        private System.Windows.Forms.BindingSource listaFoodMenuBindingSource1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;

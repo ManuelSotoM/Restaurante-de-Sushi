@@ -141,7 +141,7 @@ namespace Win.Restaurante_de_sushi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var foodmenu = (FoodMenuBL)listaFoodMenuBindingSource.Current;
+            var foodmenu = (FoodMenuBL.FoodMenu)listaFoodMenuBindingSource.Current;
             if (foodmenu != null)
             {
 

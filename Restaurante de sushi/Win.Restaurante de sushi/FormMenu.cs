@@ -52,5 +52,19 @@ namespace Win.Restaurante_de_sushi
             formFactura.MdiParent = this;
             formFactura.Show();
         }
+
+        private void reporteDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formReporteFoodMenu = new FormReporteFoodMenu();
+            formReporteFoodMenu.MdiParent = this;
+            formReporteFoodMenu.Show();
+        }
+
+        private void reporteDeVentaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var formReporteFacturas = new FormReporteFacturas();
+            formReporteFacturas.MdiParent = this;
+            formReporteFacturas.Show();
+        }
     }
 }

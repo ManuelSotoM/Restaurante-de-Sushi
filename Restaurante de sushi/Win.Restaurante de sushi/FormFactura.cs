@@ -61,7 +61,8 @@ namespace Win.Restaurante_de_sushi
 
         private void toolStripButtonCancelar_Click(object sender, EventArgs e)
         {
-
+            DeshabilitarHabilitarBotones(true);
+            _facturaBL.CancelarCambios();
         }
 
         private void listaFacturasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -86,18 +87,17 @@ namespace Win.Restaurante_de_sushi
         private void button2_Click(object sender, EventArgs e)
         {
             var factura = (Factura)listaFacturasBindingSource.Current;
-            _facturaBL.AgregarFacturaDetalle(factura);
-            DeshabilitarHabilitarBotones(false);
+            var facturaDetalle = (FacturaDetalle)facturaDetalleBindingSource.Current;
 
+            _facturaBL.RemoverFacturaDetalle(factura, facturaDetalle);
+
+            DeshabilitarHabilitarBotones(false);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var factura = (Factura)listaFacturasBindingSource.Current;
-            var facturaDetalle = (FacturaDetalle)facturaDetalleBindingSource.Current;
-
-            _facturaBL.RemoverFacturaDetalle(factura, facturaDetalle);
-
+            _facturaBL.AgregarFacturaDetalle(factura);
             DeshabilitarHabilitarBotones(false);
         }
 
@@ -163,6 +163,14 @@ namespace Win.Restaurante_de_sushi
         private void facturaDetalleDataGridView_DataError_1(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.ThrowException = false;
+        }
+
+        private void facturaDetalleDataGridView_CellEndEdit_1(object sender, DataGridViewCellEventArgs e)
+        {
+            var factura = (Factura)listaFacturasBindingSource.Current;
+            _facturaBL.CalcularFactura(factura);
+
+            listaFacturasBindingSource.ResetBindings(false);
         }
     }
 }
