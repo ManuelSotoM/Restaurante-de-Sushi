@@ -177,6 +177,7 @@
     <None Include="app.config" />
     <None Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>

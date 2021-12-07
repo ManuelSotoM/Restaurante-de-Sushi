@@ -36,8 +36,8 @@
             System.Windows.Forms.Label precioLabel;
             System.Windows.Forms.Label fotoLabel;
             System.Windows.Forms.Label categoriaIdLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFoodMenu));
             System.Windows.Forms.Label tipoIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFoodMenu));
             this.listaFoodMenuBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.listaFoodMenuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -66,12 +66,17 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.listaFoodMenuBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.categoriaIdComboBox = new System.Windows.Forms.ComboBox();
-            this.categoriasBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaCategoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriasBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tiposBLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tipoIdComboBox = new System.Windows.Forms.ComboBox();
-            this.tiposBLBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.listaTiposBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tiposBLBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button3 = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             activoLabel = new System.Windows.Forms.Label();
             calificacionLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
@@ -86,11 +91,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriasBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaCategoriasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaTiposBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
@@ -155,6 +160,15 @@
             categoriaIdLabel.Size = new System.Drawing.Size(77, 17);
             categoriaIdLabel.TabIndex = 17;
             categoriaIdLabel.Text = "Categoria :";
+            // 
+            // tipoIdLabel
+            // 
+            tipoIdLabel.AutoSize = true;
+            tipoIdLabel.Location = new System.Drawing.Point(28, 161);
+            tipoIdLabel.Name = "tipoIdLabel";
+            tipoIdLabel.Size = new System.Drawing.Size(44, 17);
+            tipoIdLabel.TabIndex = 18;
+            tipoIdLabel.Text = "Tipo :";
             // 
             // listaFoodMenuBindingNavigator
             // 
@@ -355,7 +369,7 @@
             // 
             this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.fotoPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.listaFoodMenuBindingSource, "Foto", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.fotoPictureBox.Location = new System.Drawing.Point(659, 69);
+            this.fotoPictureBox.Location = new System.Drawing.Point(667, 187);
             this.fotoPictureBox.Name = "fotoPictureBox";
             this.fotoPictureBox.Size = new System.Drawing.Size(385, 233);
             this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -365,7 +379,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(728, 30);
+            this.button1.Location = new System.Drawing.Point(681, 128);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 33);
             this.button1.TabIndex = 13;
@@ -375,7 +389,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(895, 30);
+            this.button2.Location = new System.Drawing.Point(881, 128);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(133, 33);
             this.button2.TabIndex = 14;
@@ -400,27 +414,18 @@
             this.categoriaIdComboBox.TabIndex = 18;
             this.categoriaIdComboBox.ValueMember = "Id";
             // 
-            // categoriasBLBindingSource
-            // 
-            this.categoriasBLBindingSource.DataSource = typeof(BL.Sushi.CategoriasBL);
-            // 
             // listaCategoriasBindingSource
             // 
             this.listaCategoriasBindingSource.DataMember = "ListaCategorias";
             this.listaCategoriasBindingSource.DataSource = this.categoriasBLBindingSource;
             // 
+            // categoriasBLBindingSource
+            // 
+            this.categoriasBLBindingSource.DataSource = typeof(BL.Sushi.CategoriasBL);
+            // 
             // tiposBLBindingSource
             // 
             this.tiposBLBindingSource.DataSource = typeof(BL.Sushi.TiposBL);
-            // 
-            // tipoIdLabel
-            // 
-            tipoIdLabel.AutoSize = true;
-            tipoIdLabel.Location = new System.Drawing.Point(28, 161);
-            tipoIdLabel.Name = "tipoIdLabel";
-            tipoIdLabel.Size = new System.Drawing.Size(44, 17);
-            tipoIdLabel.TabIndex = 18;
-            tipoIdLabel.Text = "Tipo :";
             // 
             // tipoIdComboBox
             // 
@@ -434,21 +439,66 @@
             this.tipoIdComboBox.TabIndex = 19;
             this.tipoIdComboBox.ValueMember = "Id";
             // 
+            // listaTiposBindingSource
+            // 
+            this.listaTiposBindingSource.DataMember = "ListaTipos";
+            this.listaTiposBindingSource.DataSource = this.tiposBLBindingSource;
+            // 
             // tiposBLBindingSource1
             // 
             this.tiposBLBindingSource1.DataSource = typeof(BL.Sushi.TiposBL);
             this.tiposBLBindingSource1.CurrentChanged += new System.EventHandler(this.tiposBLBindingSource1_CurrentChanged);
             // 
-            // listaTiposBindingSource
+            // textBox1
             // 
-            this.listaTiposBindingSource.DataMember = "ListaTipos";
-            this.listaTiposBindingSource.DataSource = this.tiposBLBindingSource;
+            this.textBox1.Location = new System.Drawing.Point(681, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 22);
+            this.textBox1.TabIndex = 20;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(939, 30);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "BUSCAR";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 573);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1064, 22);
+            this.statusStrip1.TabIndex = 23;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusStrip2
+            // 
+            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 551);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(1064, 22);
+            this.statusStrip2.TabIndex = 24;
+            this.statusStrip2.Text = "statusStrip2";
             // 
             // FormFoodMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 595);
+            this.Controls.Add(this.statusStrip2);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(tipoIdLabel);
             this.Controls.Add(this.tipoIdComboBox);
             this.Controls.Add(categoriaIdLabel);
@@ -478,11 +528,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaFoodMenuBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriasBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaCategoriasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaTiposBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tiposBLBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,5 +574,10 @@
         private System.Windows.Forms.ComboBox tipoIdComboBox;
         private System.Windows.Forms.BindingSource tiposBLBindingSource1;
         private System.Windows.Forms.BindingSource listaTiposBindingSource;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip2;
     }
 }

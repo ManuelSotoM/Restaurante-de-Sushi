@@ -35,6 +35,12 @@ namespace Win.Restaurante_de_sushi
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Login();
+
+        }
+
+        private void Login()
+        {
             string usuario;
             string contraseña;
 
@@ -54,10 +60,11 @@ namespace Win.Restaurante_de_sushi
             {
                 MessageBox.Show("Usuario o Contraseña incorrecta");
             }
+            button1.Enabled = true;
+            button1.Text = "aceptar";
+        }
 
-
-              }
-             private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -71,16 +78,34 @@ namespace Win.Restaurante_de_sushi
         {
             Application.Exit();
         }
+       
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
 
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (textBox1.Text != " " && e.KeyChar == (char)Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+        }
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (textBox1.Text != ""&& textBox2.Text != "" && e.KeyChar == (char)Keys.Enter)
+            {
+                Login();
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
 

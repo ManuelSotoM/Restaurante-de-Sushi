@@ -25,6 +25,8 @@ namespace Win.Restaurante_de_sushi
         {
             var formLogin = new FormLogin();
             formLogin.ShowDialog();
+
+            toolStripStatusLabel1.Text = "Usuario :ADRIAN PIneda;";
         }
 
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)

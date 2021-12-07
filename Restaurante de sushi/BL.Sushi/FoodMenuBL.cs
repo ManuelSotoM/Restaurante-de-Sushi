@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace BL.Sushi
 {
@@ -23,8 +23,20 @@ namespace BL.Sushi
         {
             _contexto.foodmenu.Load();
             ListaFoodMenu = _contexto.foodmenu.Local.ToBindingList();
+
             return ListaFoodMenu;
         }
+
+        public BindingList<FoodMenu> ObtenerFoodMenu(string buscar)
+        {
+            _contexto.foodmenu.Load();
+            var resultado = _contexto.foodmenu.Where(r => r.Menu.Contains(buscar));
+            return new BindingList<FoodMenu>(resultado.ToList());
+          
+        }
+
+      
+
         public void CancelarCambios()
         {
 
@@ -145,6 +157,8 @@ namespace BL.Sushi
             public bool Exitoso { get; set; }
             public string Mensaje { get; set; }
         }
+
+      
     }
 }
 

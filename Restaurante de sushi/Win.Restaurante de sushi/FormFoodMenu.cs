@@ -191,6 +191,21 @@ namespace Win.Restaurante_de_sushi
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string buscar = textBox1.Text;
+
+            if (buscar != " ")
+            {
+                listaFoodMenuBindingSource.DataSource = _FoodMenu.ObtenerFoodMenu(buscar);
+            }
+            else
+            {
+                listaFoodMenuBindingSource.DataSource = _FoodMenu.ObtenerFoodMenu();
+            }
+            listaFoodMenuBindingSource.ResetBindings(false);
+        }
     }
 }
 
